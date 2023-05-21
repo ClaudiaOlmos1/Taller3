@@ -1,0 +1,64 @@
+@startuml
+'https://plantuml.com/class-diagram
+left to right direction
+hide empty members
+skin rose
+
+package services {
+Class SistemaImpl {
++SistemaImpl()
+}
+
+Interface Sistema {
++agregarInstrumetos(nombre)
++venderInstrumentos()
++consultarInventario()
++Cerrar()
+}
+}
+
+package domain {
+abstract class Instrumentos {
+-Codigo:int
+-Precio:int
+-Stock:int
+-nombre:String
+-material:String
++Intrumento(Codigo:int, Precio:int, Stock:int, nombre:String, material:String)
+
+}
+
+class Cuerda implements Instrumentos{
+-numeroCuerdas:int
+-tipoCuerda:String
+-tipo:String
++Cuerda (Codigo:int, Precio:int, Stock:int, nombre:String, material:String, numeroCuerdas:int, tipoCuerda:String, tipo:String)
+}
+
+class Percusion implements Instrumentos{
+-tipoDePercusion:String
+-altura:String
++Percusion(Codigo:int, Precio:int, Stock:int, nombre:String, material:String, tipoDePercusion:String, altura:String)
+
+}
+
+class Viento implements Instrumentos {
++Viento(Codigo:int, Precio:int, Stock:int, nombre:String, material:String)
+
+}
+}
+
+package utils {
+class ListaInstrumentos{
+
++ListaInstrumentos()
++obtenerInstrumentos()
++venderInstrumentos()
+
+
+}
+Sistema <|.. SistemaImpl
+SistemaImpl --> "1" ListaInstrumentos
+ListaInstrumentos --> "*" Instrumentos
+
+@enduml

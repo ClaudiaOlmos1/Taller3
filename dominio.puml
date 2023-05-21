@@ -1,0 +1,33 @@
+@startuml
+left to right direction
+skin rose
+
+
+entity Tienda
+
+entity instrumentos{
+codigo
+precio
+stock
+material
+nombre
+}
+
+entity Cuerda {
+
+}
+
+entity percusion {
+
+}
+
+entity viento {
+
+}
+Tienda "1" -- "*" instrumentos : posee >
+instrumentos "*" --  Cuerda : pertenece a >
+instrumentos "*" --  percusion : pertenece a >
+instrumentos "*" --  viento : pertenece a >
+
+
+@enduml
